@@ -20,7 +20,7 @@ struct User: Decodable {
     var emailAddress: String?
     
     func fullName() -> String? {
-        guard let firstName = firstName, let lastName = lastName  else { return nil }
+        guard let firstName = firstName, let lastName = lastName else { return nil }
         return "\(firstName) \(lastName)"
     }
 }

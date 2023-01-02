@@ -18,12 +18,9 @@ class UsersDataSource: NSObject {
     init(_ users: [User]) {
         self.users = users
     }
-    
 }
 
-// MARK: - Helping Methods
-
-
+// MARK: - UITableViewDataSource
 extension UsersDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +40,7 @@ extension UsersDataSource: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension UsersDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("getting called")
@@ -50,6 +48,7 @@ extension UsersDataSource: UITableViewDelegate {
 }
 
 
+// MARK: - Helping Methods
 extension UsersDataSource {
     
     func registerCells(_ tableView: UITableView) {
