@@ -12,9 +12,6 @@ Below are the components of this Architecture :
 * Router
 * Models
 
-### Protocols are used here throughout the components to pass data and vice versa.
-Protocols are used widely throughout the components to pass & receive data/messages.
-
 ## View Controller
 
 * Defines a scene and contains a view or views.
