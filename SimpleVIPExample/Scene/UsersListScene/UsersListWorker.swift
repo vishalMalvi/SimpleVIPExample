@@ -1,8 +1,8 @@
 //
-//  Requests.swift
+//  UsersListWorker.swift
 //  SimpleVIPExample
 //
-//  Created by Vishal_Malvi on 02/01/23.
+//  Created by Vishal_Malvi on 04/01/23.
 //
 
 import Foundation
@@ -11,10 +11,11 @@ enum EndPoint: String {
     case usersList
 }
 
-struct Requests {
-    
-   static func getUsersData(completion: @escaping (Result<UsersList, Error>) -> Void) {
-       if  let url = Bundle.main.url(forResource: EndPoint.usersList.rawValue, withExtension: StringConstant.json.rawValue) {
+typealias RequestResult = Result<UsersList, Error>
+
+class UsersListWorker {
+    func getUsersData(completion: @escaping (RequestResult) -> Void) {
+        if  let url = Bundle.main.url(forResource: EndPoint.usersList.rawValue, withExtension: StringConstant.json.rawValue) {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()

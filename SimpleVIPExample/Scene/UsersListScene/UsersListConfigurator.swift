@@ -14,8 +14,10 @@ struct UsersListConfigurator {
         let presenter = UsersListPresenter()
         let interactor = UsersListInteractor()
         let router = UsersListRouter()
+        let worker = UsersListWorker()
         viewController.interactor = interactor
         interactor.presenter = presenter
+        interactor.worker = worker
         presenter.viewController = viewController
         viewController.router = router
         router.viewController = viewController

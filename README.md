@@ -9,6 +9,7 @@ Below are the components of this Architecture :
 * View Controller
 * Interactor
 * Presenter
+* Worker
 * Router
 * Models
 
@@ -35,6 +36,12 @@ Below are the components of this Architecture :
 * Keeps a weak reference to the view controller that is an output of the presenter.
 
 * After the interactor produces some results, it passes the response to the presenter. Next, the presenter marshals the response into view models suitable for display and then passes the view models back to the view controller for display to the user.
+
+## Worker
+
+* The Worker component will handle all the API/CoreData requests and responses. The Response will get the data ready for the Interactor. It will handle the success/error response, so the Interactor would know how to proceed.
+
+* Should follow the Single Responsibility principle (an interactor may contain many workers with different responsibilities).
 
 ## Router
 

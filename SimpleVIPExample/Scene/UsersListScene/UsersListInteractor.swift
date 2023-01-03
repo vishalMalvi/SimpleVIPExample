@@ -10,9 +10,9 @@ import UIKit
 class UsersListInteractor: UsersListBusinessLogic {
     
     var presenter: UsersListPresentationLogic?
-    
+    var worker: UsersListWorker?
     func requestUsersData() {
-        Requests.getUsersData { [weak self] result in
+        worker?.getUsersData { [weak self] result in
             switch result {
             case .success(let usersData):
                 self?.presenter?.presentUsersData(usersData)
