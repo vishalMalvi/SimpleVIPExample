@@ -109,7 +109,7 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		6E78EBF22964193B0046C6F8 /* UsersList */ = {
+		6E78EBF22964193B0046C6F8 /* UsersListScene */ = {
 			isa = PBXGroup;
 			children = (
 				6EF2B61E2962D8D00041242B /* UsersListViewController.swift */,
@@ -121,10 +121,10 @@
 				6EF2B6202962D9010041242B /* UsersListInterfaces.swift */,
 				6EF2B6332962F9CC0041242B /* View */,
 			);
-			path = UsersList;
+			path = UsersListScene;
 			sourceTree = "<group>";
 		};
-		6E78EBF329641D310046C6F8 /* UserDetails */ = {
+		6E78EBF329641D310046C6F8 /* UserDetailsScene */ = {
 			isa = PBXGroup;
 			children = (
 				6E78EBF42964203E0046C6F8 /* UserDetailsViewController.swift */,
@@ -134,7 +134,7 @@
 				6E78EBF8296428710046C6F8 /* UserDetailsInterfaces.swift */,
 				6E78EBFE29642E420046C6F8 /* UsersDetailsModel.swift */,
 			);
-			path = UserDetails;
+			path = UserDetailsScene;
 			sourceTree = "<group>";
 		};
 		6EF2B61A2962D7420041242B /* Resource */ = {
@@ -149,8 +149,8 @@
 		6EF2B61D2962D7D00041242B /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				6E78EBF22964193B0046C6F8 /* UsersList */,
-				6E78EBF329641D310046C6F8 /* UserDetails */,
+				6E78EBF22964193B0046C6F8 /* UsersListScene */,
+				6E78EBF329641D310046C6F8 /* UserDetailsScene */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
