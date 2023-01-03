@@ -1,5 +1,5 @@
 //
-//  UsersDataSource.swift
+//  UsersListDataSource.swift
 //  SimpleVIPExample
 //
 //  Created by Vishal_Malvi on 02/01/23.
@@ -7,13 +7,14 @@
 
 import UIKit
 
-enum UsersDataCells: String {
+enum UsersListCells: String {
     case usersTableViewCell
 }
 
-class UsersDataSource: NSObject {
+class UsersListDataSource: NSObject {
     
     var users: [User]
+    weak var delegate: UsersListDataSourceDelegate?
     
     init(_ users: [User]) {
         self.users = users
@@ -21,14 +22,14 @@ class UsersDataSource: NSObject {
 }
 
 // MARK: - UITableViewDataSource
-extension UsersDataSource: UITableViewDataSource {
+extension UsersListDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersDataCells.usersTableViewCell.rawValue) as? UsersTableViewCell  else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersListCells.usersTableViewCell.rawValue) as? UsersTableViewCell  else { return UITableViewCell() }
         let user = users[indexPath.row]
         let model = UsersTableViewCell.ViewModel(name: user.fullName(), email: user.emailAddress)
         cell.updateData(model)
@@ -41,17 +42,18 @@ extension UsersDataSource: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension UsersDataSource: UITableViewDelegate {
+extension UsersListDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("getting called")
+        let user = users[indexPath.row]
+        delegate?.selectedUser(user)
     }
 }
 
 
 // MARK: - Helping Methods
-extension UsersDataSource {
+extension UsersListDataSource {
     
     func registerCells(_ tableView: UITableView) {
-        tableView.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersDataCells.usersTableViewCell.rawValue)
+        tableView.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersListCells.usersTableViewCell.rawValue)
     }
 }

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class UsersDataPresenter: UsersDataPresentationLogic {
+class UsersListPresenter: UsersListPresentationLogic {
     
-    weak var viewController: UsersDataDisplayLogic?
+    weak var viewController: UsersListDisplayLogic?
     
-    func presentUsersData(_ usersData: UsersData) {
+    func presentUsersData(_ usersData: UsersList) {
         guard let users = usersData.users, let title = usersData.title else { return }
-        let dataSource = UsersDataSource(users)
+        let dataSource = UsersListDataSource(users)
         viewController?.displayUsersData(usersDataSource: dataSource, title: title)
     }
 }

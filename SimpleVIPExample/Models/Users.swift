@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UsersData: Decodable {
+struct UsersList: Decodable {
     var users: [User]?
     var title: String?
 }

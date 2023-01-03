@@ -1,5 +1,5 @@
 //
-//  UsersDataInteractor.swift
+//  UsersListInteractor.swift
 //  SimpleVIPExample
 //
 //  Created by Vishal_Malvi on 02/01/23.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class UsersDataInteractor: UsersDataBusinessLogic {
+class UsersListInteractor: UsersListBusinessLogic {
     
-    var presenter: UsersDataPresentationLogic?
+    var presenter: UsersListPresentationLogic?
     
     func requestUsersData() {
         Requests.getUsersData { [weak self] result in

@@ -1,5 +1,5 @@
 //
-//  UsersDataViewController.swift
+//  UsersListViewController.swift
 //  SimpleVIPExample
 //
 //  Created by Vishal_Malvi on 02/01/23.
@@ -7,10 +7,11 @@
 
 import UIKit
 
-class UsersDataViewController: UIViewController {
+class UsersListViewController: UIViewController {
     
-    var interactor: UsersDataBusinessLogic?
-    var dataSource: UsersDataSource?
+    var interactor: UsersListBusinessLogic?
+    var dataSource: UsersListDataSource?
+    var router: UsersListRoutingLogic?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -31,20 +32,21 @@ class UsersDataViewController: UIViewController {
 }
 
 // MARK: - UsersDataDisplayLogic
-extension UsersDataViewController: UsersDataDisplayLogic {
+extension UsersListViewController: UsersListDisplayLogic {
     
-    func displayUsersData(usersDataSource: UsersDataSource, title: String) {
+    func displayUsersData(usersDataSource: UsersListDataSource, title: String) {
         navigationItem.title = title
         dataSource = usersDataSource
         dataSource?.registerCells(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
+        dataSource?.delegate = self
         reloadTableView()
     }
 }
 
 // MARK: - Helping Methods
-extension UsersDataViewController {
+extension UsersListViewController {
     
     private func setupView() {
         view.addSubview(tableView)
@@ -52,11 +54,11 @@ extension UsersDataViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
                                                constant: ViewDimensionConstants.zero.rawValue),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: ViewDimensionConstants.zero.rawValue),
+                                                constant: -ViewDimensionConstants.zero.rawValue),
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
                                            constant: ViewDimensionConstants.zero.rawValue),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
-                                              constant: ViewDimensionConstants.zero.rawValue)
+                                              constant: -ViewDimensionConstants.zero.rawValue)
         ])
     }
     
@@ -64,5 +66,13 @@ extension UsersDataViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+}
+
+// MARK: - UsersDataSourceDelegate
+extension UsersListViewController : UsersListDataSourceDelegate {
+    
+    func selectedUser(_ user: User) {
+        router?.navigateToUserDetailsController(user)
     }
 }
