@@ -90,7 +90,7 @@ Below are the components of this Architecture :
 * Despite the fact that there is an official website of Clean Swift architecture, it changes often and implementations may differ between projects. (https://clean-swift.com/clean-swift-ios-architecture/)
 
 
-## Official implementation guide 
+## Official implementation Link 
 
 https://clean-swift.com/clean-swift-ios-architecture/
 
