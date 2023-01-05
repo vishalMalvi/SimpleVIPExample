@@ -7,15 +7,11 @@
 
 import Foundation
 
-enum EndPoint: String {
-    case usersList
-}
-
 typealias RequestResult = Result<UsersList, Error>
 
 class UsersListWorker {
     func getUsersData(completion: @escaping (RequestResult) -> Void) {
-        if  let url = Bundle.main.url(forResource: EndPoint.usersList.rawValue, withExtension: StringConstant.json.rawValue) {
+        if  let url = Bundle.main.url(forResource: StringConstant.usersList.rawValue, withExtension: StringConstant.json.rawValue) {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()

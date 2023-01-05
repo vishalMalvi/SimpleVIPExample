@@ -18,6 +18,7 @@ enum IntegerConstants: Int {
 }
 
 enum StringConstant: String {
+    case usersList
     case json
     case userDetails = "User details"
 }
