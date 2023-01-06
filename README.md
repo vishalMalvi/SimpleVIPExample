@@ -13,6 +13,9 @@ Below are the components of this Architecture :
 * Router
 * Models
 
+![Untitled Diagram drawio(2)](https://user-images.githubusercontent.com/97470591/211023011-30890c67-7ed4-48ba-8e99-df0566dbf6cd.png)
+
+
 ## View Controller
 
 * Defines a scene and contains a view or views.
