@@ -19,6 +19,7 @@ class UsersListViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.clipsToBounds = true
         tableView.alwaysBounceVertical = false
+        tableView.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersListCells.usersTableViewCell.rawValue)
         return tableView
     }()
     
@@ -37,7 +38,6 @@ extension UsersListViewController: UsersListDisplayLogic {
     func displayUsersData(usersDataSource: UsersListDataSource, title: String) {
         navigationItem.title = title
         dataSource = usersDataSource
-        dataSource?.registerCells(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
         dataSource?.delegate = self

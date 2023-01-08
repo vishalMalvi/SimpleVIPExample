@@ -20,7 +20,7 @@ final class UsersListDataSourceTest: XCTestCase {
         dataSource = UsersListDataSource([user1, user2])
         mockTableView = UITableView()
         mockTableView.dataSource = dataSource
-        dataSource.registerCells(mockTableView)
+        mockTableView.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersListCells.usersTableViewCell.rawValue)
         dataSource.tableView(mockTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
     }
     

@@ -48,12 +48,3 @@ extension UsersListDataSource: UITableViewDelegate {
         delegate?.selectedUser(user)
     }
 }
-
-
-// MARK: - Helping Methods
-extension UsersListDataSource {
-    
-    func registerCells(_ tableView: UITableView) {
-        tableView.register(UsersTableViewCell.self, forCellReuseIdentifier: UsersListCells.usersTableViewCell.rawValue)
-    }
-}
