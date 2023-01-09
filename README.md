@@ -74,6 +74,10 @@ Below are the components of this Architecture :
 
 ## Strengths 
 
+* Unidirectional flow of data
+
+* Testability
+
 * Easy to maintain and fix bugs.
 
 * Enforces modularity to write shorter methods with a single responsibility.
@@ -88,9 +92,7 @@ Below are the components of this Architecture :
 
 ## Disadvantages
 
-* Many protocols with complicated naming and responsibilities
-
-* Large app size due to many protocols.
+* Many protocols and responsibilities
 
 * Despite the fact that there is an official website of Clean Swift architecture, it changes often and implementations may differ between projects. (https://clean-swift.com/clean-swift-ios-architecture/)
 
