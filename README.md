@@ -92,9 +92,9 @@ Below are the components of this Architecture :
 
 ## Disadvantages
 
-* Many protocols and responsibilities
+* Clean Swift VIP architecture can be quite complex and may require a significant amount of code to implement, which can be difficult for new developers to understand and maintain.
 
-* Despite the fact that there is an official website of Clean Swift architecture, it changes often and implementations may differ between projects. (https://clean-swift.com/clean-swift-ios-architecture/)
+* It can be difficult to understand the flow of the code and how different components interact with each other, especially for developers who are not familiar with the Clean Swift architecture.
 
 
 ## Official implementation Link 
