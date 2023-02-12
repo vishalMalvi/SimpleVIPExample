@@ -7,51 +7,53 @@
 
 import UIKit
 
-class UserDetailsViewController: UIViewController {
+class ProductDetailsViewController: UIViewController {
     
+    // MARK: - Component
     private lazy var containerVStack: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = ViewDimensionConstants.eight.rawValue
+        stackView.alignment = .center
+        stackView.spacing = ViewDimensionConstants.sixteen.rawValue
         return stackView
     }()
     
-    private lazy var nameLabel: UILabel = {
+    private lazy var productImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .lightGray
+        imageView.layer.cornerRadius = ViewDimensionConstants.ten.rawValue
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 30)
+        label.font = .boldSystemFont(ofSize: 25)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .label
         label.numberOfLines = IntegerConstants.zero.rawValue
         return label
     }()
     
-    private lazy var phoneLabel: UILabel = {
+    private lazy var descLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 25)
+        label.font = .systemFont(ofSize: 20)
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .secondaryLabel
         label.numberOfLines = IntegerConstants.zero.rawValue
         return label
     }()
     
-    private lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 25)
-        label.textAlignment = .center
-        label.textColor = .black
-        label.numberOfLines = IntegerConstants.zero.rawValue
-        return label
-    }()
+    // MARK: - Properties
+    var interactor: ProductDetailsBusinessLogic?
+    var product: Product
     
-    var interactor: UserDetailsBusinessLogic?
-    var user: User
-    
-    init(user: User) {
-        self.user = user
+    init(product: Product) {
+        self.product = product
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -63,24 +65,25 @@ class UserDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        title = StringConstant.productsDetails.rawValue
         setupView()
-        interactor?.setupUserDetails(user)
+        interactor?.setupProductDetails(product)
     }
     
 }
 
 // MARK: - UserDetailsDisplayLogic
-extension UserDetailsViewController: UserDetailsDisplayLogic {
-    func displayUserData(model: UsersDetailsModel, title: String) {
-        navigationItem.title  = title
-        nameLabel.text = model.name
-        phoneLabel.text = model.phoneNumber
-        emailLabel.text = model.emailAddress
+extension ProductDetailsViewController: ProductDetailsDisplayLogic {
+    
+    func displayProductDetails(_ product: Product) {
+        titleLabel.text = product.title
+        descLabel.text = product.description
+        productImageView.setImage(with: product.image)
     }
 }
 
 // MARK: - Helping Methods
-extension UserDetailsViewController {
+extension ProductDetailsViewController {
     
     private func setupView() {
         view.addSubview(containerVStack)
@@ -90,10 +93,12 @@ extension UserDetailsViewController {
             containerVStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                                                       constant: -ViewDimensionConstants.sixteen.rawValue),
             containerVStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                                 constant: ViewDimensionConstants.sixteen.rawValue)
+                                                 constant: ViewDimensionConstants.sixteen.rawValue),
+            productImageView.widthAnchor.constraint(equalToConstant: ViewDimensionConstants.twoHundred.rawValue),
+            productImageView.heightAnchor.constraint(equalToConstant: ViewDimensionConstants.twoHundred.rawValue)
         ])
-        containerVStack.addArrangedSubview(nameLabel)
-        containerVStack.addArrangedSubview(phoneLabel)
-        containerVStack.addArrangedSubview(emailLabel)
+        containerVStack.addArrangedSubview(productImageView)
+        containerVStack.addArrangedSubview(titleLabel)
+        containerVStack.addArrangedSubview(descLabel)
     }
 }

@@ -7,12 +7,14 @@
 
 import UIKit
 
-struct UserDetailsConfigurator {
+
+
+struct ProductDetailsConfigurator {
     
-    static func createScene(user: User) -> UserDetailsViewController {
-        let viewController = UserDetailsViewController(user: user)
-        let presenter = UsersDetailsPresenter()
-        let interactor = UserDetailsInteractor()
+    static func createScene(product: Product) -> ProductDetailsViewController {
+        let viewController = ProductDetailsViewController(product: product)
+        let presenter = ProductDetailsPresenter()
+        let interactor = ProductDetailsInteractor()
         viewController.interactor = interactor
         interactor.presenter = presenter
         presenter.viewController = viewController
