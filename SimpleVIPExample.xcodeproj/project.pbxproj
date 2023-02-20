@@ -171,7 +171,7 @@
 			path = ProductsScene;
 			sourceTree = "<group>";
 		};
-		6E78EBF329641D310046C6F8 /* UserDetailsScene */ = {
+		6E78EBF329641D310046C6F8 /* ProductDetails */ = {
 			isa = PBXGroup;
 			children = (
 				6E78EBF42964203E0046C6F8 /* ProductDetailsViewController.swift */,
@@ -180,7 +180,7 @@
 				6E78EBF6296425E00046C6F8 /* ProductDetailsConfigurator.swift */,
 				6E78EBF8296428710046C6F8 /* ProductDetailsInterfaces.swift */,
 			);
-			path = UserDetailsScene;
+			path = ProductDetails;
 			sourceTree = "<group>";
 		};
 		6E811D6A2999430A00214B50 /* Extension */ = {
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				6E78EBF22964193B0046C6F8 /* ProductsScene */,
-				6E78EBF329641D310046C6F8 /* UserDetailsScene */,
+				6E78EBF329641D310046C6F8 /* ProductDetails */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
