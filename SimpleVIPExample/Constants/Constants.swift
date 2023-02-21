@@ -23,8 +23,6 @@ enum IntegerConstants: Int {
     case one = 1
     case two = 2
     case three = 3
-    case twoHundred = 200
-    case twoHundredNinetyNine  = 299
 }
 
 enum StringConstant: String {

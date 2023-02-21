@@ -39,7 +39,7 @@ final class APIManager {
             }
             
             guard let response = response as? HTTPURLResponse,
-                  IntegerConstants.twoHundred.rawValue ... IntegerConstants.twoHundredNinetyNine.rawValue ~= response.statusCode else {
+                  200 ... 299 ~= response.statusCode else {
                 completion(.failure(.invalidResponse))
                 return
             }
